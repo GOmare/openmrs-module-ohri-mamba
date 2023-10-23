@@ -1,0 +1,7 @@
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/OHRIMambaActivator.java
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/task/FlattenTableTask.java
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/api/dao/FlattenDatabaseDao.java
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/OHRIMambaConfig.java
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/api/impl/FlattenDatabaseServiceImpl.java
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/api/FlattenDatabaseService.java
+/Users/laureenomare/openmrs-module-ohri-mamba-original/api/src/main/java/org/openmrs/module/ohrimamba/api/dao/impl/HibernateFlattenDatabaseDao.java

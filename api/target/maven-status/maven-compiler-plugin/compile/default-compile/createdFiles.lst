@@ -1,0 +1,7 @@
+org/openmrs/module/ohrimamba/OHRIMambaActivator.class
+org/openmrs/module/ohrimamba/api/dao/impl/HibernateFlattenDatabaseDao.class
+org/openmrs/module/ohrimamba/api/dao/FlattenDatabaseDao.class
+org/openmrs/module/ohrimamba/api/FlattenDatabaseService.class
+org/openmrs/module/ohrimamba/OHRIMambaConfig.class
+org/openmrs/module/ohrimamba/task/FlattenTableTask.class
+org/openmrs/module/ohrimamba/api/impl/FlattenDatabaseServiceImpl.class
