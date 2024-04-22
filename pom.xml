@@ -10,7 +10,7 @@
     </parent>
 
     <groupId>org.openmrs.module</groupId>
-    <artifactId>ohrimamba</artifactId>
+    <artifactId>mamba-etl</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>MambaETL Reference Module</name>
@@ -19,9 +19,9 @@
     <url>https://wiki.openmrs.org/x/FQ4z</url>
 
     <scm>
-        <connection>scm:git:git@github.com:UCSF-IGHS/openmrs-module-ohri-mamba.git</connection>
-        <url>https://github.com/UCSF-IGHS/openmrs-module-ohri-mamba</url>
-        <developerConnection>scm:git:git@github.com:UCSF-IGHS/openmrs-module-ohri-mamba.git</developerConnection>
+        <connection>scm:git:git@github.com:UCSF-IGHS/openmrs-module-mamba-etl.git</connection>
+        <url>https://github.com/UCSF-IGHS/openmrs-module-mamba-etl</url>
+        <developerConnection>scm:git:git@github.com:UCSF-IGHS/openmrs-module-mamba-etl.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 
@@ -34,6 +34,7 @@
         <openmrsPlatformVersion>2.0.0</openmrsPlatformVersion>
         <webservicesRestVersion>2.21.0</webservicesRestVersion>
         <legacyUIomodVersion>1.8.2</legacyUIomodVersion>
+        <javaxAnnotationVersion>1.3.2</javaxAnnotationVersion>
         <mambaETLCoreVersion>1.0.1-SNAPSHOT</mambaETLCoreVersion>
         <junit5Version>5.7.2</junit5Version>
         <junit4Version>4.13.1</junit4Version>
@@ -117,9 +118,10 @@
             </dependency>
 
             <dependency>
-                <groupId>org.openmrs.module</groupId>
-                <artifactId>mamba-core-omod</artifactId>
-                <version>${mambaETLCoreVersion}</version>
+                <groupId>javax.annotation</groupId>
+                <artifactId>javax.annotation-api</artifactId>
+                <version>${javaxAnnotationVersion}</version>
+                <scope>provided</scope>
             </dependency>
 
             <dependency>
@@ -286,7 +288,9 @@
                                     <!-- Set 1 to recompile/build the scripts else 0 - not to. If 1 - don't forget to change the liquibase changeset ID -->
                                     <argument>-b 1</argument>
 
-                                    <!-- add any other arguments below -->
+                                    <!-- Set the concepts locale here -->
+                                    <argument>-l en</argument>
+
                                     <argument/>
 
                                     <argument/>
@@ -415,6 +419,7 @@
                         </execution>
                     </executions>
                 </plugin>
+
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
@@ -433,31 +438,6 @@
                     </executions>
                 </plugin>
 
-                <!--
-                <plugin>
-                    <groupId>org.openmrs.maven.plugins</groupId>
-                    <artifactId>openmrs-sdk-maven-plugin</artifactId>
-                    <version>3.9.0</version>
-                    <executions>
-                        <execution>
-                            <id>build-distro</id>
-                            <phase>install</phase>
-                            <goals>
-                                <goal>build-distro</goal>
-                            </goals>
-                            <configuration>
-                                <dir>${project.build.directory}/docker</dir>
-                                <bundled>true</bundled>
-                                <distro>${project.build.directory}/classes/openmrs-distro.properties</distro>
-                                <batchAnswers>
-                                    <param>n</param>
-                                </batchAnswers>
-                            </configuration>
-                        </execution>
-                    </executions>
-                </plugin>
-                -->
-
             </plugins>
 
         </pluginManagement>
@@ -469,7 +449,6 @@
             <id>openmrs-repo</id>
             <name>OpenMRS Nexus Repository</name>
             <url>http://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
-            <!-- <url>https://openmrs.jfrog.io/artifactory/public/</url> -->
         </repository>
 
         <repository>
@@ -487,7 +466,6 @@
             <id>openmrs-repo</id>
             <name>OpenMRS Nexus Repository</name>
             <url>http://mavenrepo.openmrs.org/nexus/content/repositories/public</url>
-            <!-- <url>https://openmrs.jfrog.io/artifactory/public/</url>-->
             <snapshots>
                 <enabled>true</enabled>
             </snapshots>
@@ -507,5 +485,26 @@
             <url>http://mavenrepo.openmrs.org/nexus/content/repositories/snapshots</url>
         </snapshotRepository>
     </distributionManagement>
+
+    <developers>
+        <developer>
+            <id>OpenMRS-MambaETL-MakSPH</id>
+            <name>Arthur D. Mugume</name>
+            <organization>MakSPH</organization>
+            <organizationUrl>https://mets.or.ug</organizationUrl>
+        </developer>
+        <developer>
+            <id>OpenMRS-MambaETL-UCSF</id>
+            <name>Laureen G. Omare</name>
+            <organization>UCSF</organization>
+            <organizationUrl>http://ucglobalprograms.org/kenya</organizationUrl>
+        </developer>
+        <developer>
+            <id>OpenMRS-MambaETL-UoN</id>
+            <name>Amos Laboso</name>
+            <organization>UoN</organization>
+            <organizationUrl>https://www.uonbi.ac.ke</organizationUrl>
+        </developer>
+    </developers>
 
 </project>
